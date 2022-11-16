@@ -5,11 +5,10 @@ mod ip_addr;
 mod optional;
 
 fn main() {
-    println!("Hello, enum!");
+    println!("Hello, Enum!");
 
     test_ip_enum();
-    optional::test_optional_enum();
-
+    test_optional_enum();
 }
 
 fn test_ip_enum(){
@@ -21,5 +20,9 @@ fn test_ip_enum(){
 
     println!("{:?}", home);
     println!("{:?}", home_v6);
+}
+
+fn test_optional_enum(){
+    optional::test_optional_enum();
 }
 
