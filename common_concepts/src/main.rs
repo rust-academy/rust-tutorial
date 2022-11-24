@@ -25,11 +25,11 @@ fn constants() {
     // 2) Cannot be mut
     // 3) must be fixed value or a fixed expression
 
-    const SUB_COUNT:u64 =  1000_000;
-    const SEC_AS_MIN:u64 =  60*60;
+    const SUB_COUNT: u64 = 1000_000;
+    const SEC_AS_MIN: u64 = 60 * 60;
 }
 
-fn shadowing(){
+fn shadowing() {
     let z = 6;
     println!("The value of z is: {z}");
 
@@ -40,22 +40,18 @@ fn shadowing(){
     {
         let z = 128;
         println!("The value of z is: {z}");
-
     }
 
     let z = 265;
     println!("The value of z is: {z}");
-
-
 }
 
-fn scalars(){
-
+fn scalars() {
     let _a = 98222; // Decimal
     let _b = 0xff; // Hex
     let _c = 0o77; // octal
     let _d = 0b1111_0000; // binary
-    let _e:u8 = b'A';
+    let _e: u8 = b'A';
 
     // int overflow
     let _f: u8 = 255; // ok
@@ -67,15 +63,13 @@ fn scalars(){
     let _x = 2.0; // f64
 
     let _y: f32 = 3.0; // f32
-
-
 }
 
-fn math_operations(){
-    let sum = 5+10;
+fn math_operations() {
+    let sum = 5 + 10;
     println!("{}", sum);
 
-    let sub = 10-7;
+    let sub = 10 - 7;
     println!("{}", sub);
 
 
@@ -101,7 +95,7 @@ fn booleans() {
     let _f: bool = false; // with explicit type annotation
 }
 
-fn chars(){
+fn chars() {
     // Char
     let _c = 'z';
     let _z: char = 'ℤ'; // with explicit type annotation
@@ -121,31 +115,27 @@ fn compound() {
     let sub = tup.1;
     println!("The value of x is: {sub}");
 
-    let _tup2 = (1,2,3);
+    let _tup2 = (1, 2, 3);
 
-    let (a,b,v) =_tup2;
+    let (a, b, v) = _tup2;
 
     // array
     let error_code = [200, 404, 500];
 
     let not_found = error_code[1];
     println!("The value of not_found is: {not_found}");
-
 }
 
 fn control_flow(number: i32) {
-
-     if number ==  0{
-         println!("first condition was true!");
-     } else if number <22{
-         println!("second condition was true!");
-     } else if number < 44{
-         println!("third condition was true!");
-
-     }
-     else{
-         print!("All previous condition was false ");
-     }
+    if number == 0 {
+        println!("first condition was true!");
+    } else if number < 22 {
+        println!("second condition was true!");
+    } else if number < 44 {
+        println!("third condition was true!");
+    } else {
+        print!("All previous condition was false ");
+    }
 }
 
 fn conditional_let() {
@@ -155,12 +145,11 @@ fn conditional_let() {
 }
 
 fn loop_examples() {
-
     let mut counter = 0;
 
-    let result = loop{
-        counter +=1;
-        if counter == 10{
+    let result = loop {
+        counter += 1;
+        if counter == 10 {
             break counter;
         }
     };
@@ -182,5 +171,4 @@ fn loop_examples() {
     for number in 1..4 {
         println!("{}", number)
     }
-
 }

@@ -1,4 +1,3 @@
-
 #[derive(Debug, Clone, PartialEq)]
 struct User {
     username: String,
@@ -19,7 +18,7 @@ struct Rectangle {
 
 impl Rectangle {
     fn build_square(size: u32) -> Rectangle {
-        Rectangle{ width: size, height: size}
+        Rectangle { width: size, height: size }
     }
 
     fn area(&self) -> u32 {
@@ -35,7 +34,7 @@ impl Rectangle {
 fn main() {
     println!("Hello, structs!");
 
-    let user1 = User{
+    let user1 = User {
         username: "Sam".to_string(),
         email: "sam@mail.com".to_string(),
         counter: 0,
@@ -43,7 +42,7 @@ fn main() {
     };
     let user2 = build_user(String::from("Lisa"), String::from("lise@mail.com"));
 
-    let user3 = User{
+    let user3 = User {
         username: String::from("SamLOL"),
         ..user1
     };
@@ -71,12 +70,11 @@ fn main() {
     struct Color(i32, i32, i32);
     struct Point(i32, i32);
 
-    let red = Color(1,0,0);
+    let red = Color(1, 0, 0);
 
     let r = red.0;
 
-    let point = Point(23,42);
+    let point = Point(23, 42);
 
     let x = point.0;
-
 }

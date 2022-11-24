@@ -1,4 +1,3 @@
-
 //    Ownership rules
 // 1. Each value in Rust has a variable that's called its owner.
 // 2. here can only be one owner at a time.
@@ -15,27 +14,24 @@ fn main() {  // main scope
     function_mut_ref();
     change_read_write_ref();
     use_first_word();
-
 } // main scope
 
-fn scope(){ // outer scope
+fn scope() { // outer scope
 
     { // inner scope starts  nothing here
 
-        let mut  s = "Hello, world!"; // s is valid and in scope
+        let mut s = "Hello, world!"; // s is valid and in scope
 
         s.split_whitespace();
-
     }  // inner scope ends, s will removed from memory
-
 } // outer scope ends
 
 fn stack_data() {
-        let x = 5;
-        let y = x;
+    let x = 5;
+    let y = x;
 
-        println!("{}", x);
-        println!("{}", y);
+    println!("{}", x);
+    println!("{}", y);
 }
 
 fn heap_data() {
@@ -49,13 +45,13 @@ fn heap_data() {
     println!("{}, world!", s3);
 }
 
-fn function_ownership(){
+fn function_ownership() {
     let some_string = give_ownership();
     take_ownership(&some_string);
     println!("{}, world!", some_string);
 }
 
-fn take_ownership(some_string: &String){
+fn take_ownership(some_string: &String) {
     println!("{}", some_string);
 } // scope ends, some string will be removed
 
@@ -69,7 +65,6 @@ fn takes_and_gives_back(a_string: String) -> String {
 }
 
 fn function_mut_ref() -> () {
-
     let main_string = String::from("Hello, ");
 
     { // inner scope
@@ -77,34 +72,31 @@ fn function_mut_ref() -> () {
         change_string(&mut mut_string);
     } // scope ends here, mut_string will be removed
 
-   let s = &main_string;
+    let s = &main_string;
 
     function_ref(s);
-
-
 }
 
-fn change_string(mut_string: &mut String){
+fn change_string(mut_string: &mut String) {
     mut_string.push_str("World");
 }
 
-fn change_read_write_ref()  {
+fn change_read_write_ref() {
     let mut s = String::from("Something");
 
     let r1 = &s;
     let r2 = &s;
 
 
-   println!("{}, {},", r1, r2);
+    println!("{}, {},", r1, r2);
 
     {
         let r3 = &mut s;
         println!("{},", r3);
     } //
-
 }
 
-fn function_ref(s : &String) {
+fn function_ref(s: &String) {
     // let s1 = String::from("Something");
     //let s = &s1;
 
@@ -141,7 +133,7 @@ fn calculate_capacity(s: &String) -> usize { // s is a read-only reference to a 
 // - Take references as argument
 // - Return values
 
-fn string_slices(){
+fn string_slices() {
     let s = String::from("hello world");
 
     let hello = &s[0..5];
@@ -149,7 +141,7 @@ fn string_slices(){
     println!("{}, {}", hello, world);
 }
 
-fn first_slice(){
+fn first_slice() {
     let s = String::from("hello");
     let slice = &s[0..2];
     let slice = &s[..2];
@@ -159,17 +151,15 @@ fn first_slice(){
     let slice = &s[3..];
 }
 
-fn use_first_word(){
-
+fn use_first_word() {
     let s = String::from("hello world");
 
     let first = first_word(&s); //&String ???
 
     println!("first word: {}", first);
-
 }
 
-fn use_fist_all_string(){
+fn use_fist_all_string() {
     let my_string = String::from("hello world");
 
     // `first_word` works on slices of `String`s, whether partial or whole
@@ -189,7 +179,6 @@ fn use_fist_all_string(){
     // Because string literals *are* string slices already,
     // this works too, without the slice syntax!
     let word = first_word(my_string_literal);
-
 }
 
 fn first_word(s: &str) -> &str {
@@ -204,7 +193,7 @@ fn first_word(s: &str) -> &str {
     &s[..]
 }
 
-fn other_slices(){
+fn other_slices() {
     let a = [1, 2, 3, 4, 5];
 
     let slice = &a[1..3];

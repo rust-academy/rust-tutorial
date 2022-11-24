@@ -7,3 +7,4 @@
 5. [Structs](structs)
 6. [Enums and Pattern Matching](enums)
 7. [Packages, crates, and modules](modules)
+   8.[Common Collections](collections) 

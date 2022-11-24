@@ -1,7 +1,4 @@
-
-
-pub fn test_optional_enum(){
-
+pub fn test_optional_enum() {
     let some_number = Some(5);
     let no_number = None; // Nil // Null
 
@@ -16,14 +13,13 @@ pub fn test_optional_enum(){
     let option_number: Option<i32> = Some(41);
     check_number(&option_number);
 
-    let add_one =  plus_one(&option_number);
+    let add_one = plus_one(&option_number);
     println!("Add One number: {}", add_one.unwrap_or(0));
-
 }
 
-fn check_number(option_number: &Option<i32>){
+fn check_number(option_number: &Option<i32>) {
     match option_number {
-        Some(number) => { println!("Number: {}", number)},
+        Some(number) => { println!("Number: {}", number) }
         None => println!("Nope, there is no number")
     }
 }

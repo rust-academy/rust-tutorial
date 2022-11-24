@@ -14,10 +14,10 @@ pub(crate) enum UsState {
     Alabama,
     Alaska,
     // --snip--
-    Unknown
+    Unknown,
 }
 
-impl fmt::Display for Coin{
+impl fmt::Display for Coin {
     fn fmt(&self, f: &mut Formatter<'_>) -> fmt::Result {
         match self {
             Coin::Penny => write!(f, "Penny"),

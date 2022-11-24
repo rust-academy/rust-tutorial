@@ -1,13 +1,13 @@
-use std::io;
 use std::cmp::Ordering;
-use colored::*;
+use std::io;
 
+use colored::*;
 use rand::Rng;
 
 fn main() {
-    let secret_number = rand::thread_rng().gen_range(1 ..=10);
+    let secret_number = rand::thread_rng().gen_range(1..=10);
 
-    loop{
+    loop {
         println!("Guess the number");
         let mut read_guess = String::new();
 
@@ -21,8 +21,8 @@ fn main() {
         };
 
         match guess.cmp(&secret_number) {
-            Ordering::Less => {println!("{}", "Too small!".red())},
-            Ordering::Greater => {println!("{}", "Too big!".red())}
+            Ordering::Less => { println!("{}", "Too small!".red()) }
+            Ordering::Greater => { println!("{}", "Too big!".red()) }
             Ordering::Equal => {
                 println!("{}", "You win!".green());
                 break;
