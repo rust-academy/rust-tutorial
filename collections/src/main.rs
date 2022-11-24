@@ -1,7 +1,16 @@
 mod vector;
+mod string;
 
 fn main() {
     test_vector();
+    println!();
+    test_string();
+}
+
+fn test_string() {
+    string::test_string();
+    string::test_concat_string();
+    string::test_string_iteration();
 }
 
 fn test_vector() {

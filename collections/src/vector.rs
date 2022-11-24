@@ -20,7 +20,7 @@ pub fn test_unsafe_vector_access() {
     let third = &v[2];
     println!("Third element: {}", third);
 
-    //let invalid = &v[99];
+    //let invalid = &v[99]; // compiles and runs, but panics.
 }
 
 pub fn test_safe_vec_access() {
@@ -85,5 +85,3 @@ fn test_all_cell(cell: &SpreadsheetCell) {
         SpreadsheetCell::Text(n) => println!("String: {}", n)
     }
 }
-
-
