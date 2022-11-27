@@ -1,5 +1,7 @@
 # Rust Programming Tutorial
 
+Videos: https://www.youtube.com/@rust-academy
+
 1. [Getting Started](hello_world)
 2. [Guessing Game](guessing_game)
 3. [Common programming concepts](common_concepts)
@@ -13,5 +15,4 @@
     * [Generics]()
 
 [//]: # (   * [Traits]&#40;&#41;)
-
 [//]: # (   * [Lifetimes]&#40;&#41;)
