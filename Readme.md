@@ -12,7 +12,7 @@ Videos: https://www.youtube.com/@rust-academy
 8. [Common collections](collections) 
 9. [Error handling](errors)
 10. Generics, Traits, and Lifetimes
-    * [Generics]()
+    * [Generics](generics)
 
 [//]: # (   * [Traits]&#40;&#41;)
 [//]: # (   * [Lifetimes]&#40;&#41;)
