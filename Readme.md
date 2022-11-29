@@ -13,6 +13,5 @@ Videos: https://www.youtube.com/@rust-academy
 9. [Error handling](errors)
 10. Generics, Traits, and Lifetimes
     * [Generics](generics)
-
-[//]: # (   * [Traits]&#40;&#41;)
+    * [Traits](traits)
 [//]: # (   * [Lifetimes]&#40;&#41;)
