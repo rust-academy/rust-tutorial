@@ -14,4 +14,6 @@ Videos: https://www.youtube.com/@rust-academy
 10. Generics, Traits, and Lifetimes
     * [Generics](generics)
     * [Traits](traits)
-[//]: # (   * [Lifetimes]&#40;&#41;)
+    * [Lifetimes](lifetimes)
+    
+11.[Testing](testing) 
