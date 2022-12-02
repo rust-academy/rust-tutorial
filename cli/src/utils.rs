@@ -37,6 +37,4 @@ mod tests {
         assert_eq!(expected.case_sensitive(), result.case_sensitive());
 
     }
-
-
 }
