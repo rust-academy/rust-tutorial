@@ -11,7 +11,7 @@ fn main() {
     test_generic_longest();
 }
 
-fn _problem(){
+fn _problem() {
     let r: &i32;
 
     {
@@ -24,11 +24,11 @@ fn _problem(){
 
 fn proper_ref() {
     let x = 5;             // ----------+-- x'b
-                                //           |
+    //           |
     let r = &x;           // --+-- r'a | 'a<'b == True
-                                //   |       |
+    //   |       |
     println!("r: {}", r);       //   |       |
-                                // --+       |
+    // --+       |
 }                               // ----------+ // x goes out of scope
 
 // when do lifetimes annotations apply?
@@ -53,7 +53,6 @@ fn test_3(param_1: &Vec<i32>) -> &Vec<i32> { // '&return_ref<'&param_ref == True
 // } // param_1 is going to be removed from memory
 
 
-
 // Lifetimes only apply if there are references
 // * in the output of a function
 // * and there are more than one reference in the input of a function
@@ -71,10 +70,10 @@ fn test_3(param_1: &Vec<i32>) -> &Vec<i32> { // '&return_ref<'&param_ref == True
 // &'a mut i32 // a mutable reference with an explicit lifetime
 
 
-fn longest<'a>(x: &'a str, y: &'a str) -> &'a str{
+fn longest<'a>(x: &'a str, y: &'a str) -> &'a str {
     if x.len() > y.len() {
         x
-    } else{
+    } else {
         y
     }
 }
@@ -90,33 +89,31 @@ fn test_longest() {
 // Static lifetime
 
 fn test_static_lifetime(s: &'static str) {
-    println!("{}",s);
+    println!("{}", s);
 }
 
 fn test_generic_lifetime<'a>(s: &'a str) {
-    println!("{}",s);
+    println!("{}", s);
 }
 
 // struct lifetime
 
-struct ImportantExcerpt<'a>{
-    part: &'a str
+struct ImportantExcerpt<'a> {
+    part: &'a str,
 }
 
 impl<'a> ImportantExcerpt<'a> {
-
-    fn return_part(&self, announcement: &str) -> &str{
+    fn return_part(&self, announcement: &str) -> &str {
         println!("Attention please: {}", announcement);
         self.part
     }
-
 }
 
 fn test_struct_lifetime() {
     let novel = String::from("Call me Ishmael. Some years ago...");
     let first_sentence = novel.split(".").next().expect("Could not find first sentence.");
 
-    let excerpt = ImportantExcerpt{part: first_sentence};
+    let excerpt = ImportantExcerpt { part: first_sentence };
     let part = excerpt.return_part("What?");
 
     println!("The first sentence: {}", part);
@@ -131,22 +128,21 @@ fn test_struct_lifetime() {
 // => Manual lifetime annotation is only required if a function has multiple references as input parameters
 // of which any can be returned. Only then the compiler cannot decide which lifetime annotation to assign to the return value
 
-fn longest_with_an_announcement<'a, T, U>(x: &'a T, y: &'a T, ann: &U) ->&'a T
-where
-    T: PartialOrd,
-    U: Display,
-    {
-        println!("Announcement: {}", ann);
-        if x> y{
-            x
-        } else{
-            y
-        }
+fn longest_with_an_announcement<'a, T, U>(x: &'a T, y: &'a T, ann: &U) -> &'a T
+    where
+        T: PartialOrd,
+        U: Display,
+{
+    println!("Announcement: {}", ann);
+    if x > y {
+        x
+    } else {
+        y
+    }
 }
 
 
-
-fn test_generic_longest(){
+fn test_generic_longest() {
     let announcement = "Here comes the sun";
     let x = 32;
     let y = 64;

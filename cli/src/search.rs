@@ -1,26 +1,25 @@
 use std::error::Error;
 use std::fs;
+
 use crate::config::Config;
 
 pub fn search_word_in_file(config: Config) -> Result<(), Box<dyn Error>> {
-
     let path = config.file_path();
     let pat = &config.query();
     let content = &fs::read_to_string(path)
         .expect("Error opening file");
 
-    let result = if config.case_sensitive(){
+    let result = if config.case_sensitive() {
         search_case_sensitive(pat, content)
-    } else{
+    } else {
         search_case_insensitive(pat, content)
     };
 
     if result.len() > 0 {
-        for line in result{
+        for line in result {
             println!("{}", line);
         }
-
-    } else{
+    } else {
         println!("No results found");
     }
 
@@ -28,7 +27,7 @@ pub fn search_word_in_file(config: Config) -> Result<(), Box<dyn Error>> {
 }
 
 
-fn search_case_sensitive<'a>(pat: &'a str, content: &'a str) -> Vec<&'a str>{
+fn search_case_sensitive<'a>(pat: &'a str, content: &'a str) -> Vec<&'a str> {
     content.lines().filter(|line| line.contains(&pat)).collect()
 }
 
@@ -67,8 +66,5 @@ Trust me.";
             expected,
             search_case_insensitive(query, contents)
         );
-
     }
-
-
 }

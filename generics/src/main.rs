@@ -1,14 +1,14 @@
+use point as p;
+
 mod utils;
 mod point;
-
-use point as p;
 
 fn main() {
     largest_value();
     mixed_values();
 }
 
-fn largest_value(){
+fn largest_value() {
     let number_list = vec![34, 50, 25, 100, 65, 78, 123, 88];
     utils::print_largest_value(number_list);
 
@@ -22,11 +22,11 @@ fn largest_value(){
     let p2 = p::Point::new(3, 4);
     let p3 = p::Point::new(5, 7);
 
-    let point_list = vec![p1,p2,p3];
+    let point_list = vec![p1, p2, p3];
     utils::print_largest_value(point_list);
 }
 
-fn mixed_values(){
+fn mixed_values() {
     let p1 = p::Point::new(1, 2);
     let p2 = p::Point::new(3, 4);
     let p3 = p1.mixup(p2);
@@ -35,5 +35,4 @@ fn mixed_values(){
     println!("P1: {:?}", p1);
     println!("P2: {:?}", p2);
     println!("P3: {:?}", p3);
-
 }

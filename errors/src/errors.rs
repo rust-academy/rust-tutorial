@@ -1,5 +1,5 @@
-use std::fs::File;
 use std::{fs, io};
+use std::fs::File;
 use std::io::Read;
 
 pub fn open_file() {
@@ -12,10 +12,9 @@ pub fn open_file() {
 pub fn result_match_panic(path: &str) {
     let file = File::open("Hello.txt");
     match file {
-        Ok(file) => {},
+        Ok(file) => {}
         Err(e) => panic!("Failed to open {} Error: {}", path, e),
     };
-
 }
 
 /// recoverable_file_open does the following
@@ -31,29 +30,29 @@ pub fn result_match_panic(path: &str) {
 pub fn recoverable_file_open(path: &str) {
     let file = File::open("Hello.txt");
     match file {
-        Ok(file) => {},
+        Ok(file) => {}
         Err(e) =>
-                match e.kind() {
-                    io::ErrorKind::NotFound => {
-                            match File::create(path) {
-                                Ok(file) => (), // return the file
-                                Err(e) =>{
-                                    println!("Error creating file: {}", e);
-                                    return;
-                                }
-                            }
-                    },
-                    other_error => {
-                        panic!("Problem opening the file: {:?}", other_error)
+            match e.kind() {
+                io::ErrorKind::NotFound => {
+                    match File::create(path) {
+                        Ok(file) => (), // return the file
+                        Err(e) => {
+                            println!("Error creating file: {}", e);
+                            return;
+                        }
                     }
-                },
+                }
+                other_error => {
+                    panic!("Problem opening the file: {:?}", other_error)
+                }
+            },
     };
 }
 
 // Type alias for return type
 pub type StringResult = Result<String, io::Error>;
 
-pub fn read_username_from_file(path: &str) -> StringResult{
+pub fn read_username_from_file(path: &str) -> StringResult {
     let file = File::open(path);
 
     let mut f = match file {

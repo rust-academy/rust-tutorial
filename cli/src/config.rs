@@ -9,7 +9,6 @@ pub struct Config {
 
 impl Config {
     pub fn new(args: &[String]) -> Result<Config, &'static str> {
-
         if args.len() < 3 {
             return Err("not enough arguments. use: -- word file.txt ");
         }
@@ -29,16 +28,15 @@ impl Config {
 
     /// build is a more comprehensive constructor that checks each argument individually
     pub fn build(mut args: impl Iterator<Item=String>) -> Result<Config, &'static str> {
-
         args.next(); // skip first argument
 
         // iterating through each argument allows specific error messages
-        let query = match args.next(){
+        let query = match args.next() {
             None => return Err("Didn't get a query string"),
             Some(arg) => arg,
         };
 
-        let file_path = match args.next(){
+        let file_path = match args.next() {
             None => return Err("Didn't get a file path"),
             Some(arg) => arg,
         };
@@ -54,18 +52,17 @@ impl Config {
             file_path,
             case_sensitive,
         })
-
     }
 }
 
-impl Config{
-    pub fn query(&self) -> String{
+impl Config {
+    pub fn query(&self) -> String {
         self.query.clone()
     }
 
-    pub fn file_path(&self) -> String{
+    pub fn file_path(&self) -> String {
         self.file_path.clone()
-}
+    }
 
     pub fn case_sensitive(&self) -> bool {
         self.case_sensitive

@@ -9,11 +9,11 @@ Videos: https://www.youtube.com/@rust-academy
 5. [Structs](structs)
 6. [Enums and pattern matching](enums)
 7. [Packages, crates, and modules](modules)
-8. [Common collections](collections) 
+8. [Common collections](collections)
 9. [Error handling](errors)
 10. Generics, Traits, and Lifetimes
     * [Generics](generics)
     * [Traits](traits)
     * [Lifetimes](lifetimes)
-    
+
 11.[Testing](testing) 

@@ -1,5 +1,4 @@
-
-pub trait Summary{
+pub trait Summary {
     fn summarize_author(&self) -> String;
     fn summarize(&self) -> String {
         format!("(Read more from {} ...)", self.summarize_author())
@@ -7,14 +6,14 @@ pub trait Summary{
 }
 
 #[derive(Debug, Clone, PartialEq, PartialOrd)]
-pub struct NewsArticle{
+pub struct NewsArticle {
     pub author: String,
     pub location: String,
     pub content: String,
     pub headline: String,
 }
 
-impl Summary for NewsArticle{
+impl Summary for NewsArticle {
     fn summarize_author(&self) -> String {
         self.author.to_string()
     }
@@ -25,14 +24,14 @@ impl Summary for NewsArticle{
 }
 
 #[derive(Debug, Clone, PartialEq, PartialOrd)]
-pub struct Tweet{
+pub struct Tweet {
     pub username: String,
     pub content: String,
     pub reply: bool,
     pub retweet: bool,
 }
 
-impl Summary for Tweet{
+impl Summary for Tweet {
     fn summarize_author(&self) -> String {
         format!("@{}", self.username)
     }

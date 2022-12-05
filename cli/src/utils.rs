@@ -6,13 +6,13 @@ pub fn get_config(args: Vec<String>) -> Config {
     let config: Config;
 
     if args.len() > 0 {
-        config = Config::new(&args).unwrap_or_else(|err|{
+        config = Config::new(&args).unwrap_or_else(|err| {
             eprintln!("Problem parsing arguments: {}", err);
             process::exit(1);
         }
         );
-    } else{
-        config = Config::build(env::args()).unwrap_or_else( |err |{
+    } else {
+        config = Config::build(env::args()).unwrap_or_else(|err| {
             eprintln!("Problem parsing arguments: {}", err);
             process::exit(1);
         }
@@ -35,6 +35,5 @@ mod tests {
         assert_eq!(expected.query(), result.query());
         assert_eq!(expected.file_path(), result.file_path());
         assert_eq!(expected.case_sensitive(), result.case_sensitive());
-
     }
 }

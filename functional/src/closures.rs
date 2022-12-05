@@ -13,10 +13,10 @@ fn simple_closure() {
 
     let _x = 5;
 
-    let expensive_closure = |num:i32| {
+    let expensive_closure = |num: i32| {
         println!("calculating slowly...");
         thread::sleep(Duration::from_micros(num as u64));
-        num +21
+        num + 21
     };
 
     let forty_two = expensive_closure(21);
@@ -35,11 +35,12 @@ fn closure_syntax() {
     // * Semicolon required ;-)
 
     // Most simple_closure syntax
-    let add_one = |num: i32| num+1;
+    let add_one = |num: i32| num + 1;
     println!("{}", add_one(0));
 
     // Overblown syntax with all clutter
-    fn add_one_v1(x: u32) -> u32 { x + 1 };
+    fn add_one_v1(x: u32) -> u32 { x + 1 }
+    ;
 
     println!("{}", add_one_v1(1));
 
@@ -49,7 +50,7 @@ fn closure_syntax() {
     println!("{}", add_one_v2(2));
 
     // remove all type annotation
-    let add_one_v3 = |x|  { x + 1 };
+    let add_one_v3 = |x| { x + 1 };
     println!("{:?}", add_one_v3(3)); // println falls back to debug b/c of missing type inference
 
     // Removed curly brackets.
@@ -68,14 +69,13 @@ fn closure_syntax() {
 
     let no_arg = || println!("Nothing captured");
     no_arg();
-
 }
 
 fn closure_context_capture() {
     // Closures capture values from their local context in one of three ways:
 
     // 1) borrowing immutably.
-     immutable_borrow_closure();
+    immutable_borrow_closure();
 
     // 2) borrowing mutably.
     mutable_borrow_closure();
@@ -84,7 +84,7 @@ fn closure_context_capture() {
     taking_ownership_closure();
 }
 
-fn  immutable_borrow_closure(){
+fn immutable_borrow_closure() {
     println!("immutable_borrow_closure");
 
     // collection with sample data
@@ -97,7 +97,7 @@ fn  immutable_borrow_closure(){
     println!("After calling closure: {:?}", list);
 }
 
-fn mutable_borrow_closure(){
+fn mutable_borrow_closure() {
     println!("mutable_borrow_closure");
     // mutable collection with sample data
     let mut list = vec![1, 2, 3];
@@ -111,7 +111,7 @@ fn mutable_borrow_closure(){
 }
 
 
-fn taking_ownership_closure(){
+fn taking_ownership_closure() {
     println!("taking_ownership_closure");
 
     // If you want to force the closure to take ownership of the values it uses in the environment
@@ -126,7 +126,6 @@ fn taking_ownership_closure(){
     thread::spawn(move || closure)
         .join()
         .unwrap();
-
 }
 
 
@@ -134,7 +133,7 @@ fn closure_context_value() {
     //  A closure body can do any of the following to the value captured fro its context:
 
     // 1) move a captured value out of the closure,
-     move_captured_value_closure();
+    move_captured_value_closure();
 
     // 2) mutate the captured value,
     mutate_captured_value_closure();
@@ -148,7 +147,8 @@ fn closure_context_value() {
 
 #[derive(Debug)]
 struct Rectangle {
-    width: u32, height: u32,
+    width: u32,
+    height: u32,
 }
 
 fn move_captured_value_closure() {
@@ -162,7 +162,10 @@ fn move_captured_value_closure() {
 
     let mut num_sort_operations = 0;
 
-    list.sort_by_key(|r| {num_sort_operations+=1; r.width});
+    list.sort_by_key(|r| {
+        num_sort_operations += 1;
+        r.width
+    });
 
     println!("{:#?}, sorted in {num_sort_operations} operations", list)
 }

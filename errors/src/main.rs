@@ -6,12 +6,12 @@ const UNRECOVERABLE: bool = false;
 fn main() {
     if UNRECOVERABLE {
         unrecoverable();
-    } else{
+    } else {
         recoverable();
     }
 }
 
-fn unrecoverable(){
+fn unrecoverable() {
     // test_panic();
     // errors::open_file();
 
@@ -24,7 +24,7 @@ fn test_panic() {
 }
 
 
-fn recoverable(){
+fn recoverable() {
     let path = "Hello.txt";
     errors::recoverable_file_open(path);
 }
