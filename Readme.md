@@ -17,3 +17,5 @@ Videos: https://www.youtube.com/@rust-academy
     * [Lifetimes](lifetimes)
 
 11.[Testing](testing) 
+12.[Command Line Application](cli)
+13.[Functional Programming](functional) 
