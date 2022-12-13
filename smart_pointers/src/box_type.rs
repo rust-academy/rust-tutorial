@@ -1,4 +1,3 @@
-
 // Boxes don’t have performance overhead, other than storing their data on the heap.
 // You’ll use them most often in these situations:
 //
@@ -24,7 +23,7 @@ pub fn test_box() {
 // }
 
 #[derive(Debug, Clone, PartialOrd, PartialEq)]
-enum List{
+enum List {
     Cons(i32, Box<List>),
     Nil,
 }

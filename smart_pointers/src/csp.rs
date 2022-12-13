@@ -2,7 +2,7 @@ use std::fmt::{Display, Formatter};
 use std::ops::{Deref, DerefMut};
 
 #[derive(Debug, Clone, PartialEq, Eq, PartialOrd)]
-pub struct CustomSmartPointer<T: Display>{
+pub struct CustomSmartPointer<T: Display> {
     data: T,
 }
 
@@ -10,29 +10,30 @@ pub struct CustomSmartPointer<T: Display>{
 pub type CSP<T> = CustomSmartPointer<T>;
 
 
-impl<T: Display> CSP<T>  {
-    pub fn new(data: T) -> Self{
-        return CustomSmartPointer{data}
+impl<T: Display> CSP<T> {
+    pub fn new(data: T) -> Self {
+        return CustomSmartPointer { data };
     }
 }
 
 
-impl<T: Display> Deref for CSP<T>{
-    type Target = T;  // Defines an associated type for the CSP trait
+impl<T: Display> Deref for CSP<T> {
+    type Target = T;
+    // Defines an associated type for the CSP trait
     fn deref(&self) -> &Self::Target {
         &self.data
     }
 }
 
 
-impl<T: Display> DerefMut for CSP<T>{
+impl<T: Display> DerefMut for CSP<T> {
     fn deref_mut(&mut self) -> &mut Self::Target {
         &mut self.data
     }
 }
 
 
-impl<T: Display> Drop for CSP<T>{
+impl<T: Display> Drop for CSP<T> {
     fn drop(&mut self) {
         println!("Dropping CustomSmartPointer with data `{}`!", self.data);
     }

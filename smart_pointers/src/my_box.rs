@@ -22,11 +22,11 @@ pub fn test_deref_my_box() {
 }
 
 
-fn hello(name: &str){
+fn hello(name: &str) {
     println!("Hello: {name}")
 }
 
-pub fn test_deref_coercion(){
+pub fn test_deref_coercion() {
     let m = MyBox::new(String::from("Rust"));
 
     // Rust does deref coercion when it finds types and trait implementations in three cases:
@@ -56,7 +56,7 @@ pub fn test_deref_coercion(){
 struct MyBox<T>(T);
 
 impl<T> MyBox<T> {
-    fn new(x: T) -> MyBox<T>{ MyBox(x) }
+    fn new(x: T) -> MyBox<T> { MyBox(x) }
 }
 
 impl<T> Deref for MyBox<T> {

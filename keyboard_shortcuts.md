@@ -1,4 +1,4 @@
-#### Navigate Folder 
+#### Navigate Folder
 
 ```
 cmd + 1
@@ -12,12 +12,11 @@ cmd + 3
 
 #### Commit Code
 
-
 ```
 cmd + k
 ```
 
-### Open & close commit window 
+### Open & close commit window
 
 ```
 cmd + 0
@@ -29,44 +28,44 @@ cmd + 0
 cmd + 9
 ```
 
-
 #### Search everywhere
 
 ```
 Double hit shift 
 ```
 
-#### Refactor: Rename 
+#### Refactor: Rename
 
 ```
 Shift + F6
 ```
 
-#### Run & Debug 
+#### Run & Debug
 
-Run 
+Run
+
 ```
 Ctrl + R 
 ```
 
-Debug 
+Debug
+
 ```
 Ctrl + D 
 ```
 
+Modify shortcuts:
 
-Modify shortcuts: 
-
-* Double hit shift 
+* Double hit shift
 
 * Type keymap
 
-* Open the keymap settings & adjust to your preferences 
+* Open the keymap settings & adjust to your preferences
 
 Note: There is a PDF called keymap PDF, which you can also open.
 
 * Hit double shift
 
-* Type Keyboard shortcuts 
+* Type Keyboard shortcuts
 
 * Open Keyboard shortcuts PDF 
