@@ -63,7 +63,7 @@ pub fn read_username_from_file(path: &str) -> StringResult {
     };
 
     let mut s = String::new();
-    return match s.read_to_string(&mut f) {
+    return match f.read_to_string(&mut s) {
         Ok(_) => Ok(s),
         Err(e) => {
             return Err(e);
@@ -78,6 +78,6 @@ pub fn read_username_from_file_simplified(path: &str) -> StringResult {
 }
 
 pub fn read_file_to_string_simplest(path: &str) -> StringResult {
-    fs::read_to_string(path: &str)
+    fs::read_to_string(path)
 }
 
