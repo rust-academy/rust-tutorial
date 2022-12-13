@@ -20,3 +20,4 @@ Videos: https://www.youtube.com/@rust-academy
 12. [Command Line Application](cli)
 13. [Functional Programming](functional)
 14. [Cargo](my_crate)
+15. [Smart Pointers](smart_pointers)
