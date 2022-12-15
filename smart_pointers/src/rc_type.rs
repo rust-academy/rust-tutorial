@@ -1,24 +1,24 @@
 use std::rc::Rc;
 
-enum ConsList{
+use crate::rc_type::List::{Cons, Nil};
+
+enum ConsList {
     Cons(i32, Box<ConsList>),
     Nil,
 }
 
 // Doesn't work b/c Box cannot handle multiple owners
-pub fn _test_mut_list_owners(){
+pub fn _test_mut_list_owners() {
     // let a = ConsList::Cons(5, Box::new(ConsList::Cons(10, Box::new(ConsList::Nil))));
     // let _b = ConsList::Cons(3, Box::new(a)); //  value a moved here
     // let c = ConsList::Cons(3, Box::new(a)); // Error: ^ value used here after move
 }
 
 #[derive(Debug)]
-enum List{
+enum List {
     Cons(i32, Rc<List>),
     Nil,
 }
-
-use crate::rc_type::List::{Cons, Nil};
 
 pub fn test_ref_count() {
     // You have to enable multiple ownership explicitly by using the Rust type Rc<T>,
@@ -41,5 +41,4 @@ pub fn test_ref_count() {
         println!("Ref count after creating c = {}", Rc::strong_count(&a));
     }
     println!("Ref count after c goes out of scope = {}", Rc::strong_count(&a));
-
 } // b & a go out of scope so its memory will be cleaned

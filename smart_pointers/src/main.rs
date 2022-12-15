@@ -2,6 +2,8 @@ mod box_type;
 mod my_box;
 mod csp;
 mod rc_type;
+mod msg;
+mod ref_cell_type;
 
 fn main() {
     println!("==test_box==");
@@ -30,5 +32,9 @@ fn main() {
 
     println!("==test_ref_count==");
     rc_type::test_ref_count();
+    println!();
+
+    println!("==test_mut_ref_cell==");
+    ref_cell_type::test_mut_ref_cell();
     println!();
 }
