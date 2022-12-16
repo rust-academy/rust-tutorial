@@ -4,6 +4,8 @@ mod csp;
 mod rc_type;
 mod msg;
 mod ref_cell_type;
+mod tree;
+mod mem_leak;
 
 fn main() {
     println!("==test_box==");
@@ -36,5 +38,9 @@ fn main() {
 
     println!("==test_mut_ref_cell==");
     ref_cell_type::test_mut_ref_cell();
+    println!();
+
+    println!("==test_mem_leak_cycle()==");
+    mem_leak::test_mem_leak_cycle();
     println!();
 }
